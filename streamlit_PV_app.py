@@ -460,9 +460,14 @@ def main():
     # HERO
     st.markdown('<div class="hero-title">🧪 ML Model Lab</div>', unsafe_allow_html=True)
     st.markdown(
-       '<div class="hero-sub">Upload any dataset · Choose your target & features,
-    Train model and visualize results</div>',
-        unsafe_allow_html=True)
+    (
+        '<div class="hero-sub">'
+        'Upload any dataset · Choose your target & features, '
+        'Train model and visualize results'
+        '</div>'
+    ),
+    unsafe_allow_html=True
+)
 
     # ════════════════  SIDEBAR  ══════════════════════════════
     sb = st.sidebar
