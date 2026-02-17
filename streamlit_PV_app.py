@@ -460,8 +460,7 @@ def main():
     # HERO
     st.markdown('<div class="hero-title">🧪 ML Model Lab</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="hero-sub">Upload any dataset · Choose your target & features · '
-        'Train 6 models simultaneously · Hypertune with Grid Search</div>',
+        '<div class="hero-sub">Upload any dataset · Choose your target & features,
         unsafe_allow_html=True)
 
     # ════════════════  SIDEBAR  ══════════════════════════════
