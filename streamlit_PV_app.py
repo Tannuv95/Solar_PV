@@ -460,14 +460,9 @@ def main():
     # HERO
     st.markdown('<div class="hero-title">🧪 ML Model Lab</div>', unsafe_allow_html=True)
     st.markdown(
-    (
-        '<div class="hero-sub">'
-        'Upload any dataset · Choose your target & features, '
-        'Train model and visualize results'
-        '</div>'
-    ),
-    unsafe_allow_html=True
-)
+        '<div class="hero-sub">Upload any dataset · Choose your target & features · '
+        'Train 6 models simultaneously · Hypertune with Grid Search</div>',
+        unsafe_allow_html=True)
 
     # ════════════════  SIDEBAR  ══════════════════════════════
     sb = st.sidebar
@@ -813,9 +808,8 @@ def main():
         st.markdown('<div class="section-head">🔮 Predictions from All Models</div>',
                     unsafe_allow_html=True)
         pcols = st.columns(len(preds))
-        for col_ui, (nm, _) in zip(pcols, srt):
+        for col_ui, (nm, val) in zip(pcols, srt):
             r = res[nm]
-            val=pred[nm]
             col_ui.markdown(f"""
             <div class="pred-card" style="border-color:{r['color']}40">
               <div style="font-size:1.6rem">{r['icon']}</div>
