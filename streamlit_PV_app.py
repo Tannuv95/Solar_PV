@@ -818,7 +818,7 @@ def main():
             col_ui.markdown(f"""
             <div class="pred-card" style="border-color:{r['color']}40">
               <div style="font-size:1.6rem">{r['icon']}</div>
-              <div class="pred-val" style="color:{r['color']}">{val:.2f}</div>
+              <div class="pred-val" style="color:{r['color']}">{float(val):.2f}</div>
               <div class="pred-model">{nm}</div>
               <div style="font-size:.7rem;color:#6e7681;margin-top:4px">R² {r['r2_te']:.3f}</div>
             </div>""", unsafe_allow_html=True)
