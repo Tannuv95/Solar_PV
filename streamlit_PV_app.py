@@ -228,15 +228,30 @@ MPL_RC = {
 # ─────────────────────────────────────────────────────────────
 # UTILITIES
 # ─────────────────────────────────────────────────────────────
-@st.cache_data(show_spinner=False)
-def load_file(file_bytes, filename):
-    ext = filename.rsplit(".", 1)[-1].lower()
-    buf = io.BytesIO(file_bytes)
-    if ext == "csv":
-        return pd.read_csv(buf)
-    if ext in ("xls", "xlsx"):
-        return pd.read_excel(buf)
-    return None
+@st.cache_data
+def load_file(uploaded_file):
+
+    if uploaded_file is None:
+        return None
+
+    name = uploaded_file.name.lower()
+
+    # CSV files
+    if name.endswith(".csv"):
+        try:
+            return pd.read_csv(uploaded_file)
+        except UnicodeDecodeError:
+            uploaded_file.seek(0)
+            return pd.read_csv(uploaded_file, encoding="latin1")
+
+    # Excel files
+    elif name.endswith((".xlsx", ".xls")):
+        return pd.read_excel(uploaded_file)
+
+    else:
+        st.error("Unsupported file type. Upload CSV or Excel.")
+        return None
+
 
 
 def preprocess(df, features, target):
@@ -502,7 +517,7 @@ def main():
         st.stop()
 
     # Load
-    raw = load_file(uploaded.getvalue(), uploaded.name)
+    raw = load_file(uploaded)
     if raw is None:
         sb.error("Could not read file."); st.stop()
 
