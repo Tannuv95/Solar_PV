@@ -459,16 +459,7 @@ def main():
             """)
         
         st.markdown("---")
-        st.markdown("""
-        ## 🎯 Supported Use Cases
-        
-        - 📊 **Solar/Wind Power Prediction**
-        - 🏠 **Energy Consumption Forecasting**
-        - 💰 **Sales/Revenue Prediction**
-        - 📈 **Stock Price Forecasting**
-        - 🌡️ **Temperature/Weather Prediction**
-        - And any regression problem!
-        """)
+    
         
         st.stop()
     
